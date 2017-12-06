@@ -26,6 +26,6 @@ if (opts.help || opts.h) {
   return
 }
 
-const PrettierVue = require('./lib')
+const PrettierVue = require('./src/lib')
 
 new PrettierVue(opts)
