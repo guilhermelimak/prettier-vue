@@ -1,6 +1,6 @@
 {
   "name": "prettier-vue",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "patch-release": "npm version patch && npm publish && git push --follow-tags"
   },
