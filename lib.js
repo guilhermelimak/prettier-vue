@@ -4,11 +4,16 @@ const findit = require('findit')
 const fs = require('fs')
 const prettier = require('prettier')
 
-const prettierOptions = {
-  semi: true,
-  singleQuote: true,
-  trailingComma: 'never'
-}
+const VUE_EXT = '.vue'
+
+const STYLE_START = /<style.*>/gi
+const STYLE_END = /<\/style>/gi
+
+const SCRIPT_START = /<script.*>/gi
+const SCRIPT_END = /<\/script>/gi
+
+const isChanged = lang => lang.content !== lang.formatted
+const isVueSFC = filePath => filePath.indexOf(VUE_EXT) > -1
 
 const separateTags = substring => {
   const splitted = substring.trim().split('\n')
@@ -33,18 +38,6 @@ const splitChunks = str => {
 
   return { scss, js }
 }
-
-const isChanged = lang => lang.content !== lang.formatted
-
-const VUE_EXT = '.vue'
-
-const STYLE_START = /<style(\sscoped)?(\slang="scss")?(\sscoped)?>/gi
-const STYLE_END = /<\/style>/gi
-
-const SCRIPT_START = /<script>/gi
-const SCRIPT_END = /<\/script>/gi
-
-const isVueSFC = filePath => filePath.indexOf(VUE_EXT) > -1
 
 class PrettierVue {
   constructor(opts) {
