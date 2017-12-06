@@ -11,7 +11,7 @@ if (opts.help || opts.h) {
       You can change this behavior with the following options:
 
       (command)   (default)
-      --basePath  'process.cwd()'
+      --baseDir  'process.cwd()'
         Change path used as base for config and root paths
 
       --rootDir   './src'

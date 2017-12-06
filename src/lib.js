@@ -42,9 +42,9 @@ const splitChunks = str => {
 class PrettierVue {
   constructor(opts) {
     this.noisy = opts.noisy || false
-    this.basePath = opts.basePath || process.cwd()
-    this.configPath = opts.configPath || `${this.basePath}/.pretierrc`
-    this.rootDir = opts.rootDir || `${this.basePath}/src`
+    this.baseDir = opts.baseDir || process.cwd()
+    this.configPath = opts.configPath || `${this.baseDir}/.pretierrc`
+    this.rootDir = opts.rootDir || `${this.baseDir}/src`
     this.modified = {}
     this.prettierOpts = {}
 
