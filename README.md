@@ -3,8 +3,9 @@ Usage:
   directory as base and look for a .prettierrc file to use
   as prettier config and .vue files inside a ./src folder.
   You can change this behavior with the following options:
-
+```
   (command)   (default)
+  
   --baseDir  'process.cwd()'
     Change path used as base for config and root paths
 
@@ -16,3 +17,4 @@ Usage:
 
   --help|-h
     Show this help
+```
