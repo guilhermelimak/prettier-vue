@@ -1,43 +1,11 @@
-const regexIndexOf = require('./util').regexIndexOf
-const writeToFile = require('./util').writeToFile
-const findit = require('findit')
 const fs = require('fs')
+const findit = require('findit')
 const prettier = require('prettier')
 
-const VUE_EXT = '.vue'
+const pureUtils = require('./utils')
 
-const STYLE_START = /<style.*>/gi
-const STYLE_END = /<\/style>/gi
-
-const SCRIPT_START = /<script.*>/gi
-const SCRIPT_END = /<\/script>/gi
-
-const isChanged = lang => lang.content !== lang.formatted
-const isVueSFC = filePath => filePath.indexOf(VUE_EXT) > -1
-
-const separateTags = substring => {
-  const splitted = substring.trim().split('\n')
-
-  if (!splitted.length || !splitted[0]) return
-
-  return splitted.slice(1, splitted.length - 1).join('\n')
-}
-
-const split = (str, startTag, endTag) => {
-  const sub = str.substring(
-    regexIndexOf(str, startTag),
-    regexIndexOf(str, endTag, true)
-  )
-
-  return { content: separateTags(sub) }
-}
-
-const splitChunks = str => {
-  const scss = split(str, STYLE_START, STYLE_END)
-  const js = split(str, SCRIPT_START, SCRIPT_END)
-
-  return { scss, js }
-}
+const { isVueSFC, writeToFile, splitChunks, isChanged } = pureUtils(fs)
+const { STYLE_START, STYLE_END, SCRIPT_START, SCRIPT_END } = pureUtils.constants
 
 class PrettierVue {
   constructor(opts) {
