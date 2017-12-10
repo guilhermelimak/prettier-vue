@@ -19,19 +19,21 @@ class PrettierVue {
     this.modified = {}
     this.prettierOpts = {}
 
-    if (opts._ && opts._.length) {
-      const path = `${this.baseDir}/${opts._[0]}`
+    prettier.resolveConfig(this.configPath).then(options => {
+      this.prettierOpts = options
 
-      if (!isVueSFC(path)) {
+      if (opts._ && opts._.length) {
+        const path = `${this.baseDir}/${opts._[0]}`
+
+        if (!isVueSFC(path)) {
+          return
+        }
+
+        this.format(path)
+        this.writeModified()
         return
       }
 
-      this.format(path)
-      this.writeModified()
-    }
-
-    prettier.resolveConfig(this.configPath).then(options => {
-      this.prettierOpts = options
       this.searchFiles()
     })
   }
