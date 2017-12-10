@@ -1,4 +1,4 @@
-const writeToFile = require('./')
+const writeToFile = require('../../src/utils/write-to-file')
 
 it('should call to fs.writeFileSync', () => {
   const testFs = {

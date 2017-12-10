@@ -1,4 +1,4 @@
-const isChanged = require('./')
+const isChanged = require('../../src/utils/is-changed')
 
 it('should be a function', () => {
   expect(typeof isChanged).toBe('function')

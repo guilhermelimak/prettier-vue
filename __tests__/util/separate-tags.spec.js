@@ -1,5 +1,5 @@
-const separateTags = require('./')
-const fixtures = require('../../../__tests__/fixtures')
+const separateTags = require('../../src/utils/separate-tags')
+const fixtures = require('../fixtures')
 
 it('should remove style tags and return tag content', () => {
   const param = fixtures.removeStyleTagsParam

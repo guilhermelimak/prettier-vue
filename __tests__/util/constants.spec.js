@@ -1,4 +1,4 @@
-const constants = require('./')
+const constants = require('../../src/utils/constants')
 
 it('should expose VUE_EXT as .vue', () => {
   expect(constants.VUE_EXT).toBeDefined()

@@ -3,10 +3,10 @@ const {
   STYLE_END,
   SCRIPT_START,
   SCRIPT_END
-} = require('../constants')
+} = require('../../src/utils/constants')
 
-const split = require('./')
-const fixtures = require('../../../__tests__/fixtures')
+const split = require('../../src/utils/split')
+const fixtures = require('../fixtures')
 
 it('should be a function', () => {
   expect(typeof split).toBe('function')

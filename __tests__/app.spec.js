@@ -1,5 +1,6 @@
-const app = require('./app')
-const { help: helpMessage } = require('./messages')
+const app = require('../src/app')
+
+const { help: helpMessage } = require('../src/messages')
 
 describe('src/app.js', () => {
   it('should return help string if help is provided', () => {

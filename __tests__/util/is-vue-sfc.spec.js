@@ -1,5 +1,5 @@
-const isVueSFC = require('./')
-const { VUE_EXT } = require('../constants')
+const isVueSFC = require('../../src/utils/is-vue-sfc')
+const { VUE_EXT } = require('../../src/utils/constants')
 
 it(`return true if has ${VUE_EXT} in path`, () => {
   expect(isVueSFC(`./file${VUE_EXT}`)).toBeTruthy()

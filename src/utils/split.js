@@ -1,5 +1,5 @@
-const regexIndexOf = require('../regex-index-of')
-const separateTags = require('../separate-tags')
+const regexIndexOf = require('./regex-index-of')
+const separateTags = require('./separate-tags')
 
 module.exports = (str, startTag, endTag) => {
   const sub = str.substring(

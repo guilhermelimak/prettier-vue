@@ -1,5 +1,6 @@
-const splitChunks = require('./')
-const fixtures = require('../../../__tests__/fixtures')
+const splitChunks = require('../../src/utils/split-chunks')
+const fixtures = require('../fixtures')
+
 it('should be a function', () => {
   expect(typeof splitChunks).toBe('function')
 })
