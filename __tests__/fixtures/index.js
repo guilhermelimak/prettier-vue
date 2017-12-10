@@ -6,7 +6,7 @@ exports.removeStyleTagsParam = `
 .321312 {
 
 }
-</style>`;
+</style>`
 
 exports.removeStyleTagsExpectedResult = `.321312 {\n\n}`
 
@@ -56,4 +56,4 @@ export default {
   border-style: dashed !important;
 }
 </style>
-`;
+`
