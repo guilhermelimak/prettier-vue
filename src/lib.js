@@ -4,7 +4,7 @@ const prettier = require('prettier')
 
 const pureUtils = require('./utils')
 
-const { isVueSFC, writeToFile, splitChunks, isChanged } = pureUtils(fs)
+const { isVueSFC, readFile, writeToFile, splitChunks, isChanged } = pureUtils(fs)
 const { STYLE_START, STYLE_END, SCRIPT_START, SCRIPT_END } = pureUtils.constants
 
 class PrettierVue {
@@ -75,24 +75,20 @@ class PrettierVue {
   }
 
   format(path) {
-    try {
-      const strFile = fs.readFileSync(path, 'utf8')
-      const { scss, js } = splitChunks(strFile)
+    const strFile = readFile(path, 'utf8')
+    const { scss, js } = splitChunks(strFile)
 
-      this.modified[path] = { js, scss, path, strFile }
+    this.modified[path] = { js, scss, path, strFile }
 
-      if (js && js.content) {
-        this.modified[path].js.formatted = this.formatChunk(js.content)
-      }
+    if (js && js.content) {
+      this.modified[path].js.formatted = this.formatChunk(js.content)
+    }
 
-      if (scss && scss.content) {
-        this.modified[path].scss.formatted = this.formatChunk(
-          scss.content,
-          'scss'
-        )
-      }
-    } catch (err) {
-      console.log(err)
+    if (scss && scss.content) {
+      this.modified[path].scss.formatted = this.formatChunk(
+        scss.content,
+        'scss'
+      )
     }
   }
 }
