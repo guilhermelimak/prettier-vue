@@ -4,7 +4,10 @@ const prettier = require('prettier')
 
 const pureUtils = require('./utils')
 
-const { isVueSFC, readFile, writeToFile, splitChunks, isChanged } = pureUtils(fs)
+const { isVueSFC, readFile, writeToFile, splitChunks, isChanged } = pureUtils(
+  fs
+)
+
 const { STYLE_START, STYLE_END, SCRIPT_START, SCRIPT_END } = pureUtils.constants
 
 class PrettierVue {
@@ -15,6 +18,17 @@ class PrettierVue {
     this.rootDir = opts.rootDir || `${this.baseDir}/src`
     this.modified = {}
     this.prettierOpts = {}
+
+    if (opts._ && opts._.length) {
+      const path = `${this.baseDir}/${opts._[0]}`
+
+      if (!isVueSFC(path)) {
+        return
+      }
+
+      this.format(path)
+      this.writeModified()
+    }
 
     prettier.resolveConfig(this.configPath).then(options => {
       this.prettierOpts = options
@@ -70,7 +84,7 @@ class PrettierVue {
     })
 
     finder.on('end', () => {
-      this.writeModified(this.modified)
+      this.writeModified()
     })
   }
 
