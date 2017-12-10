@@ -3,12 +3,12 @@ cache:
   directories:
     - ~/.npm
 notifications:
-  email: false
+  email: tru  e
 node_js:
   - '9'
   - '8'
-  - '6'
-  - '4'
+script:
+  - npm run test
 after_success:
   - npm run semantic-release
 branches:
