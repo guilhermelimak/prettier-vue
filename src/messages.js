@@ -7,17 +7,16 @@ module.exports = {
 
         You can change this behavior with the following options:
 
-        (command)   (default)
         --baseDir  'process.cwd()'
-        Change path used as base for config and root paths
+        Change path used as base for config and root paths.
 
         --rootDir   './src'
-        Change dir where .vue files will be searched
+        Change dir where .vue files will be searched.
 
         --noisy     false
-        Wether to print the path of files being formatted
+        Wether to print the path of files being formatted.
 
-        --help|-h
-        Show this help
+        --help | -h
+        Show this help.
     `
 }
