@@ -22,7 +22,7 @@ class PrettierVue {
     prettier.resolveConfig(this.configPath).then(options => {
       this.prettierOpts = options
 
-      if (opts._ && opts._.length) {
+      if (opts._ && !!opts._.length) {
         const path = `${this.baseDir}/${opts._[0]}`
 
         if (!isVueSFC(path)) {
