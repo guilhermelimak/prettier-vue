@@ -1,3 +1,5 @@
+**Deprecated, prettier now support formatting vue files natively**
+
 Usage:
   You can run it without args and it will use the current
   directory as base and look for a .prettierrc file to use
